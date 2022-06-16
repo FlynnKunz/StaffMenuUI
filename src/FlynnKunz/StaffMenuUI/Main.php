@@ -26,7 +26,7 @@ use pocketmine\utils\Config;
 # Libs
 use muqsit\invmenu\InvMenuHandler;
 use muqsit\simplepackethandler\SimplePacketHandler;
-use Vecnavium\FormsUI\SimpleForm;
+use Vecnavium\FormsUI\FormsUI;
 use CortexPE\Commando\PacketHooker;
 use CortexPE\Commando\BaseCommand;
 
