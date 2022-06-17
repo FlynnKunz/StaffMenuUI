@@ -30,10 +30,47 @@ class VanishForm{
             if($data !== null){
                 switch($data){
                     case 0:
+                        $prefix = Main::getInstance()->messages->getNested("Prefix");
+                        $message = Main::getInstance()->messages->getNested("Messages.Vanish.vanish");
+                        if($player->hasPermission("staffmenuUI.vanish")){
+                           foreach (Server::getInstance()->getOnlinePlayers() as $client){
+                               $client->hidePlayer($player);
+                           }
+                           $player->sendMessage($prefix . $message);
+                        }else{
+                           $noperm = Main::getInstance()->messages->getNested("Messages.no-permission");
+                           $player->sendMessage($prefix .  $noperm);
+                           PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
+                        }
+                    break;
+                      
+                    case 1:
+                        $prefix = Main::getInstance()->messages->getNested("Prefix");
+                        $message = Main::getInstance()->messages->getNested("Messages.Vanish.unvanish");
+                        if($player->hasPermission("staffmenuUI.unvanish")){
+                           foreach (Server::getInstance()->getOnlinePlayers() as $client){
+                               $client->showPlayer($player);
+                           }
+                           $player->sendMessage($prefix . $message);
+                        }else{
+                           $noperm = Main::getInstance()->messages->getNested("Messages.no-permission");
+                           $player->sendMessage($prefix .  $noperm);
+                           PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
+                        }
+                    break;
+                      
+                    case 2:
+                        Main::getInstance()->menu->StaffUI($player);
                     break;
                    
                 }
             }
         });
+        $form->setTitle(Main::getInstance()->messages->getNested("Forms.Vanish.title"));
+        $form->setContent(Main::getInstance()->messages->getNested("Forms.Vanish.content"));
+        $form->addButton(Main:.getInstance()->messages->getNested("Forms.Vanish.button-enable"));
+        $form->addButton(Main:.getInstance()->messages->getNested("Forms.Vanish.button-disable"));
+        $form->addButton(Main:.getInstance()->messages->getNested("Forms.Vanish.button-exit"));
+        $player->sendForm($player);
     }
 }
