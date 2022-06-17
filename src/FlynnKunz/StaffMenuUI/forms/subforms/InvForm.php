@@ -18,6 +18,10 @@ use pocketmine\Server;
 use pocketmine\player\Player;
 use pocketmine\player\GameMode;
 
+use pocketmine\item\Item;
+use pocketmine\item\ItemIds;
+use pocketmine\item\ItemFactory;
+
 use Vecnavium\FormsUI\CustomForm;
 
 use muqsit\invmenu\transaction\InvMenuTransactionResult;
