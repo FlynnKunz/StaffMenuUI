@@ -36,9 +36,11 @@ class GamemodeForm{
                            $player->setGamemode(GameMode::SURVIVAL());
                            $player->sendMessage($prefix . $message);
                            PluginUtils::PlaySound($player, "random.pop", 11, 1);
+                        }else{
+                           $noperm = Main::getInstance()->messages->getNested("Messages.no-permission");
+                           $player->sendMessage($prefix .  $noperm);
+                           PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
                         }
-                        $noperm = Main::getInstance()->messages->getNested("Messages.no-permission");
-                        PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
                     break;
                     
                     case 1: //CREATIVE
@@ -48,9 +50,11 @@ class GamemodeForm{
                            $player->setGamemode(GameMode::CREATIVE());
                            $player->sendMessage($prefix . $message);
                            PluginUtils::PlaySound($player, "random.pop", 11, 1);
+                        }else{
+                           $noperm = Main::getInstance()->messages->getNested("Messages.no-permission");
+                           $player->sendMessage($prefix .  $noperm);
+                           PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
                         }
-                        $noperm = Main::getInstance()->messages->getNested("Messages.no-permission");
-                        PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
                     break;
                     
                     case 2: //ADVENTURE
@@ -60,9 +64,11 @@ class GamemodeForm{
                            $player->setGamemode(GameMode::ADVENTURE());
                            $player->sendMessage($prefix . $message);
                            PluginUtils::PlaySound($player, "random.pop", 11, 1);
+                        }else{
+                           $noperm = Main::getInstance()->messages->getNested("Messages.no-permission");
+                           $player->sendMessage($prefix .  $noperm);
+                           PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
                         }
-                        $noperm = Main::getInstance()->messages->getNested("Messages.no-permission");
-                        PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
                     break;
                     
                     case 3: //SPECTATOR
@@ -72,9 +78,11 @@ class GamemodeForm{
                            $player->setGamemode(GameMode::SPECTATOR());
                            $player->sendMessage($prefix . $message);
                            PluginUtils::PlaySound($player, "random.pop", 11, 1);
+                        }else{
+                           $noperm = Main::getInstance()->messages->getNested("Messages.no-permission");
+                           $player->sendMessage($prefix .  $noperm);
+                           PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
                         }
-                        $noperm = Main::getInstance()->messages->getNested("Messages.no-permission");
-                        PluginUtils::PlaySound($player, "mob.villager.no", 1, 1);
                     break;
                     
                     case 4: //BACK
