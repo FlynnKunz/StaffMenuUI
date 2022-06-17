@@ -71,6 +71,6 @@ class VanishForm{
         $form->addButton(Main::getInstance()->messages->getNested("Forms.Vanish.button-enable"));
         $form->addButton(Main::getInstance()->messages->getNested("Forms.Vanish.button-disable"));
         $form->addButton(Main::getInstance()->messages->getNested("Forms.Vanish.button-exit"));
-        $player->sendForm($player);
+        $player->sendForm($form);
     }
 }
