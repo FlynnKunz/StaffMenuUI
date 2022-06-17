@@ -49,14 +49,14 @@ class Main extends PluginBase{
     public Config $config;
   
     public function onEnable(): void{
-          self::$instance = $this;
-          $this->saveDefaultConfig();
-          $this->saveResource("messages.yml");
-          $this->saveResource("config.yml");
-          $this->config = new Config($this->getDatafolder() . "config.yml");
-          $this->messages = new Config($this->getDatafolder() . "messages.yml");
-	  $this->loadEvents();
-	  foreach ([
+        self::$instance = $this;
+        $this->saveDefaultConfig();
+        $this->saveResource("messages.yml");
+        $this->saveResource("config.yml");
+        $this->config = new Config($this->getDatafolder() . "config.yml");
+        $this->messages = new Config($this->getDatafolder() . "messages.yml");
+	$this->loadEvents();
+	foreach ([
 		"FormsUI" => FormsUI::class,
                 "InvMenu" => InvMenuHandler::class,
                 "Commando" => BaseCommand::class,
@@ -80,13 +80,21 @@ class Main extends PluginBase{
     }
     
     public function loadEvents(){
-          # StaffModeUI Forms
-          $this->menu = new StaffUI($this);
-          $this->vanish = new VanishForm($this);
-          $this->gamemode = new GamemodeForm($this);
-          $this->nickui = new Nick($this);
-          $this->freeze = new FreezeForm($this);
-          $this->invsee = new InvForm($this);
+        # StaffModeUI Forms
+        $this->menu = new StaffUI($this);
+        $this->vanish = new VanishForm($this);
+        $this->gamemode = new GamemodeForm($this);
+        $this->nickui = new Nick($this);
+        $this->freeze = new FreezeForm($this);
+        $this->invsee = new InvForm($this);
+    }
+	
+    public function getOnlinePlayersName(){
+        $onlineplayersname = [];
+        foreach(Server::getInstance()->getOnlinePlayers() as $online) {
+            array_push($onlineplayersname, $online->getName());
+        }
+        return $onlineplayersname;
     }
 	
     public static function getInstance(): Main{
